@@ -16,9 +16,10 @@ javascript:(function() {
     }, {});
 
     times = Object.keys(times).reduce((tasks, task) => {
-        tasks[task] = Math.floor(times[task] / 3600) + ":" + times[task] % 3600 / 60;
+        let time = Math.floor(times[task] / 3600) + ":" + times[task] % 3600 / 60;
+        tasks += task + ": " + time + "\n";
         return tasks;
-    }, {});
+    }, "");
 
-    alert(JSON.stringify(times, null, 2));
+    alert(times);
 })();
